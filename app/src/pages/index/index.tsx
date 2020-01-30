@@ -154,7 +154,7 @@ class Index extends Component {
               width="100%"
               height="400px"
               scrolling="auto"
-              src="//192.168.0.61:1234/"
+              src="//49.235.78.43:1234/"
               onLoad={this.onLoadMap}
             />
           </AtTabsPane>
