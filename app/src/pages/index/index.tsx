@@ -1,11 +1,12 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Swiper, SwiperItem, Image, Text } from '@tarojs/components'
+import { View, Swiper, SwiperItem, Image, Text, Canvas } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import { AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem } from 'taro-ui'
+import { CommonEvent } from '@tarojs/components/types/common'
 
 import './index.scss'
-import { CommonEvent } from '@tarojs/components/types/common'
+import { Barrage } from '../../components/barrage';
 
 type PageStateProps = {
   indexStore: {
@@ -53,6 +54,7 @@ class Index extends Component {
 
   componentDidMount() {
     this.props.indexStore.init();
+    this.initBarrage();
   }
 
   componentWillUnmount() { }
@@ -68,9 +70,20 @@ class Index extends Component {
     })
   }
 
+  onLoadMap = () => { }
 
-  onLoadMap = () => {
+  initBarrage = () => {
+    let barrage = new Barrage('canvas');
+    barrage.draw();
 
+    const textList = ['弹幕', '666', '233333333',
+      'javascript', 'html', 'css', '前端框架', 'Vue', 'React',
+      'Angular', '测试弹幕效果'
+    ];
+
+    textList.forEach((t) => {
+      barrage.shoot(t);
+    })
   }
 
   render() {
@@ -82,6 +95,14 @@ class Index extends Component {
     return (
       <View >
         <AtMessage />
+        <canvas
+          className="barrage"
+          id="canvas"
+          height="300"
+          width="700"
+        >
+          您的浏览器不支持canvas标签。
+        </canvas>
         {/* banner */}
         <Swiper
           className="banner"
@@ -157,7 +178,7 @@ class Index extends Component {
               width="100%"
               height="400px"
               scrolling="auto"
-              src="//www.baidu.com"
+              src="//www.bing.com"
               onLoad={() => { setLoading3(false) }}
               style={loading3 ? { display: 'none' } : {}}
             />

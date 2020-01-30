@@ -17,7 +17,7 @@ class IndexStore {
     "不信谣，不传谣"
   ];
   @observable newsList = [
-    { title: "北京新增一例", source: "百度辟谣", cover: "https://source.unsplash.com/random/223x156" },
+    { title: "北京新增一例", source: "百度辟谣", cover: "" },
   ]
   @observable loading3 = true
   @observable loading4 = true
