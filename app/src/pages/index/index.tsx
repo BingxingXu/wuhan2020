@@ -9,6 +9,7 @@ import './index.scss'
 import { Barrage } from '../../components/barrage';
 import { Area } from '../../components/table';
 import { Loading } from '../../components/loading';
+import { Danmu } from '../../components/danmu';
 
 type PageStateProps = {
   indexStore: {
@@ -20,12 +21,14 @@ type PageStateProps = {
     newsList: { title: string; source: string; cover: string; }[],
     loading3: boolean,
     loading4: boolean,
+    sticky: boolean,
     setLoading3: (v: boolean) => {},
     setLoading4: (v: boolean) => {},
     init: () => {},
     setCurrentTab: (index: number, event: CommonEvent) => {},
     openAction: () => {},
     closeAction: () => {},
+    setSticky: (v: boolean) => {}
   }
 }
 
@@ -90,12 +93,13 @@ class Index extends Component {
   }
 
   stickHead = () => {
+    const { indexStore: { setSticky } } = this.props
     document.onscroll = function () {
       var distance = document.body.scrollTop || document.documentElement.scrollTop;
-      if (distance > 320) {
-        console.log('distance', distance)
+      if (distance > 500) {
+        setSticky(true)
       } else {
-
+        setSticky(false)
       }
     }
   }
@@ -104,20 +108,13 @@ class Index extends Component {
     const { indexStore: { currentTab,
       tabList, setCurrentTab, isActionOpen,
       openAction, closeAction, actionList,
-      newsList, banners, setLoading3, loading3
+      newsList, banners, setLoading3, loading3,
+      sticky, setSticky,
     } } = this.props
     return (
       <View >
         <AtMessage />
-        {/* <canvas
-          className="barrage"
-          id="canvas"
-          height="300"
-          width="700"
-        >
-          您的浏览器不支持canvas标签。
-        </canvas> */}
-        {/* banner */}
+        <Danmu />
         <Swiper
           className="banner"
           indicatorColor='#999'
@@ -160,17 +157,14 @@ class Index extends Component {
         </View>
 
         {/* 按钮 */}
-        {/* <AtTabBar
-          backgroundColor='#ececec'
-          color='#ea6bb8'
-          tabList={[
-          { title: '待办事项', iconType: 'bullet-list', text: 'new' },
-          { title: '拍照', iconType: 'camera' },
-          { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
-          ]}
-          onClick={this.handleClick.bind(this)}
-          current={this.state.current}
-        /> */}
+        {sticky ? <AtTabBar
+          className="sticky-header"
+          backgroundColor='#287FFC'
+          color='#fff'
+          tabList={tabList}
+          onClick={setCurrentTab}
+          current={currentTab}
+        /> : null}
         {/* tabs */}
         <AtTabs current={currentTab} tabList={tabList} onClick={setCurrentTab}>
           <AtTabsPane current={currentTab} index={0} >

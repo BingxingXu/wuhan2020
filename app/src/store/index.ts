@@ -36,6 +36,7 @@ class IndexStore {
       "heal": 51
     }
   ]
+  @observable sticky = false
 
   @action
   setBanners = v => {
@@ -58,6 +59,9 @@ class IndexStore {
 
   @action
   setLoading4 = (v: boolean) => { this.loading3 = v }
+
+  @action
+  setSticky = (v: boolean) => { this.sticky = v }
 
   fetchBanners = async () => {
     try {
