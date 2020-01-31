@@ -148,6 +148,10 @@ class Index extends Component {
           </View>
           <View>
             <Image
+              style={{
+                marginTop: "14px",
+                marginBottom: "10px"
+              }}
               src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
             <Text>医护人员险</Text>
           </View>
