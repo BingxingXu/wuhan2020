@@ -173,15 +173,15 @@ class Index extends Component {
               </View>
               <View className="virus-col">
                 <Text className="virus-number" style={{ color: "#FF8718" }}>6042</Text>
-                <Text className="virus-hint">确诊病例</Text>
+                <Text className="virus-hint">疑似病例</Text>
               </View>
               <View className="virus-col">
                 <Text className="virus-number" style={{ color: "#00BC56" }}>6042</Text>
-                <Text className="virus-hint">确诊病例</Text>
+                <Text className="virus-hint">治愈病例</Text>
               </View>
               <View className="virus-col">
                 <Text className="virus-number" style={{ color: "#666666" }}>6042</Text>
-                <Text className="virus-hint">确诊病例</Text>
+                <Text className="virus-hint">死亡病例</Text>
               </View>
             </View>
             <AtDivider className="divider" />
@@ -240,10 +240,10 @@ class Index extends Component {
               key={index}
               onClick={this.handleClickAction}
             >
-              <View className="action-item_text">
-                <Text>{i}</Text>
+              <img src={i} />
+              {/* <View className="action-item_text">
                 <Text>发送</Text>
-              </View>
+              </View> */}
             </AtActionSheetItem>
           )}
         </AtActionSheet>

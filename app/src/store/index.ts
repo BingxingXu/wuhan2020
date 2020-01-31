@@ -15,10 +15,10 @@ class IndexStore {
   ];
   @observable isActionOpen = false
   @observable actionList = [
-    "向一线的勇士致敬",
-    "不信谣，不传谣",
-    "一切安好！大家都要好好的！",
-    "身体健康，宅在家里做贡献！"
+    "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD01.png",
+    "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD02.png",
+    "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD03.png",
+    "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD04.png",
   ];
   @observable newsList = [
     { title: "北京新增一例", source: "百度辟谣", cover: "" },

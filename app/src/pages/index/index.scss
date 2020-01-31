@@ -144,10 +144,16 @@
 }
 
 .action-item {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 12px;
+    margin-right: 12px;
     margin-bottom: 12px;
     margin-top: 12px;
+    img {
+        border-radius: 76px;
+        box-shadow: 2px 7px 16px #DBDBDB;
+        height: 152px;
+        width: 670px;
+    }
 }
 
 .action-item_text {

@@ -1,8 +1,8 @@
 import Taro, { useState, useEffect } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 
 interface IProps {
-    text: string
+    url: string
     onClick: Function
 }
 
@@ -11,7 +11,7 @@ export const ActionButton = (props: IProps) => {
 
     return (
         <View className="action-item">
-            <Text>{props.text}</Text>
+            <Image src={props.url} />
             <Text>发送</Text>
         </View>
     )

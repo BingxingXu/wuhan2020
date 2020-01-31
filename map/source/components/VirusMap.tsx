@@ -49,11 +49,11 @@ export class VirusMap extends mixin<VirusMapProps, {}>() {
   public getChartOptions(data: MapDataType) {
     return {
       title: {
-        text: '疫情地图'
+        text: ''
       },
       tooltip: {
         trigger: 'item',
-        formatter: function(params) {
+        formatter: function (params) {
           const outputArray = [params.name];
           if (data[params.name] === undefined) {
             data[params.name] = {
@@ -115,7 +115,7 @@ export class VirusMap extends mixin<VirusMapProps, {}>() {
           type: 'map',
           mapType: 'map',
           // roam: true,
-          zoom: 1, 
+          zoom: 1,
           label: {
             show: true, //mapScale > 2.5,
             fontSize: 10, //2 * mapScale
@@ -137,7 +137,7 @@ export class VirusMap extends mixin<VirusMapProps, {}>() {
     };
   }
 
-  public render({ name, data, chartOnDblClickCallBack }: VirusMapProps, {}) {
+  public render({ name, data, chartOnDblClickCallBack }: VirusMapProps, { }) {
     // 缩放时间重新set一下option
     return (
       <EchartsMap
