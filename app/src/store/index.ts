@@ -16,7 +16,9 @@ class IndexStore {
   @observable isActionOpen = false
   @observable actionList = [
     "向一线的勇士致敬",
-    "不信谣，不传谣"
+    "不信谣，不传谣",
+    "一切安好！大家都要好好的！",
+    "身体健康，宅在家里做贡献！"
   ];
   @observable newsList = [
     { title: "北京新增一例", source: "百度辟谣", cover: "" },

@@ -8,6 +8,7 @@ import { CommonEvent } from '@tarojs/components/types/common'
 import './index.scss'
 import { Barrage } from '../../components/barrage';
 import { Area } from '../../components/table';
+import { Loading } from '../../components/loading';
 
 type PageStateProps = {
   indexStore: {
@@ -55,7 +56,7 @@ class Index extends Component {
 
   componentDidMount() {
     this.props.indexStore.init();
-    this.initBarrage();
+    // this.initBarrage();
     this.stickHead();
   }
 
@@ -108,14 +109,14 @@ class Index extends Component {
     return (
       <View >
         <AtMessage />
-        <canvas
+        {/* <canvas
           className="barrage"
           id="canvas"
           height="300"
           width="700"
         >
           您的浏览器不支持canvas标签。
-        </canvas>
+        </canvas> */}
         {/* banner */}
         <Swiper
           className="banner"
@@ -149,7 +150,8 @@ class Index extends Component {
             <Text>健康门诊</Text>
           </View>
           <View>
-            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4.png" />
+            <Image
+              src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4.png" />
             <Text>医护人员险</Text>
           </View>
         </View>
@@ -193,8 +195,8 @@ class Index extends Component {
               onLoad={this.onLoadMap}
               className="map"
             />
-            <View>
-
+            <View className="virus-detail ">
+              <Area />
             </View>
           </AtTabsPane>
           {/* 防护科普 */}
@@ -223,7 +225,7 @@ class Index extends Component {
             />
           </AtTabsPane>
           <AtTabsPane current={currentTab} index={3}>
-            <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
+            <Loading />
           </AtTabsPane>
         </AtTabs>
         {/* 祈福按钮 */}
@@ -233,15 +235,19 @@ class Index extends Component {
         </View>
         <AtActionSheet isOpened={isActionOpen} cancelText='取消' title='点击发送吉祥语' onClose={closeAction}>
           {actionList.map((i, index) =>
-            <AtActionSheetItem key={index} onClick={this.handleClickAction}>
-              {i}
+            <AtActionSheetItem
+              className="action-item"
+              key={index}
+              onClick={this.handleClickAction}
+            >
+              <View className="action-item_text">
+                <Text>{i}</Text>
+                <Text>发送</Text>
+              </View>
             </AtActionSheetItem>
           )}
         </AtActionSheet>
         <AtDivider className="divider" />
-        <View className="virus-detail ">
-          <Area />
-        </View>
         <View className="place-holder" />
       </View>
     )

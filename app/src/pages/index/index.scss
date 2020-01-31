@@ -143,6 +143,28 @@
     }
 }
 
+.action-item {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.action-item_text {
+    height:144px;
+    background:rgba(216,216,216,1);
+    border-radius:16px;
+    font-size:32px;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    line-height:32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
 .place-holder {
     height: 280px;
 }
