@@ -29,7 +29,7 @@ export const Danmu = () => {
             newList = [...list, text]
         }
         setList(newList);
-    }, 1000)
+    }, 1500)
     return (
         <View className="danmu-container">
             <View className="danmu-group">
