@@ -2,7 +2,7 @@ import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text, Canvas } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { AtDivider, AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem, AtAccordion } from 'taro-ui'
+import { AtDivider, AtTabBar, AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem, AtAccordion } from 'taro-ui'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 import './index.scss'
@@ -151,7 +151,7 @@ class Index extends Component {
           </View>
           <View>
             <Image
-              src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4.png" />
+              src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
             <Text>医护人员险</Text>
           </View>
         </View>
@@ -160,6 +160,17 @@ class Index extends Component {
         </View>
 
         {/* 按钮 */}
+        {/* <AtTabBar
+          backgroundColor='#ececec'
+          color='#ea6bb8'
+          tabList={[
+          { title: '待办事项', iconType: 'bullet-list', text: 'new' },
+          { title: '拍照', iconType: 'camera' },
+          { title: '文件夹', iconType: 'folder', text: '100', max: '99' }
+          ]}
+          onClick={this.handleClick.bind(this)}
+          current={this.state.current}
+        /> */}
         {/* tabs */}
         <AtTabs current={currentTab} tabList={tabList} onClick={setCurrentTab}>
           <AtTabsPane current={currentTab} index={0} >
