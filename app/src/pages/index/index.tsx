@@ -190,6 +190,10 @@ class Index extends Component {
               <Text className="title">全国疫情地图</Text>
             </View>
             <iframe
+              frameborder={0}
+              border="0"
+              marginwidth="0"
+              marginheight="0"
               ref="imap"
               seamless
               width="100%"
