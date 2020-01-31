@@ -47,11 +47,9 @@
         align-items: center;
         justify-content: center;
 
-        .at-icon {
-            background-color: #d8d8d8;
+        .taro-img {
             height: 96px;
             width: 96px;
-            border-radius: 48px;
             margin-bottom: 24px;
         }        
     }
@@ -68,6 +66,61 @@
     line-height:33px;
 }
 
+.map-source {
+    margin-top: 40px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:24px;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:33px;
+}
+
+.virus-total {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 32px;
+    margin-right: 32px;
+    .virus-col {
+        display: flex;
+        flex-direction: column;
+        .virus-number {
+            font-size:48px;
+            font-weight:600;
+            color:rgba(51,51,51,1);
+            line-height:40px;
+            margin-bottom: 16px;
+            margin-top: 32px;
+        }
+        .virus-hint{
+            font-size:28px;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+            line-height:28px;
+        }
+    }
+}
+
+.divider {
+    margin-left: 32px;
+    margin-right: 32px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.map {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.virus-detail {
+
+}
+
 .bottom-view {
     position: fixed;
     height: 130px;
@@ -78,6 +131,13 @@
     right: 0;
     padding-top: 16px;
     padding-bottom: 16px;
+    z-index: 300;
+    .btn-hint {
+        font-size:22px;
+        font-weight:400; 
+        color:rgba(153,153,153,1);
+        line-height:22px;
+    }
 }
 
 .place-holder {

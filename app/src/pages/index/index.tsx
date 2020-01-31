@@ -2,7 +2,7 @@ import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text, Canvas } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem } from 'taro-ui'
+import { AtDivider, AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem } from 'taro-ui'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 import './index.scss'
@@ -110,7 +110,7 @@ class Index extends Component {
           indicatorActiveColor='#333'
           circular
           indicatorDots
-          autoplay>
+        >
           {banners.map((i, index) =>
             <SwiperItem key={index}>
               <Image
@@ -124,19 +124,19 @@ class Index extends Component {
         </Swiper>
         <View className="banner-btns">
           <View>
-            <AtIcon value="heart" size='30' color='#D8D8D8' />
+            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon1.png" />
             <Text>理赔服务</Text>
           </View>
           <View>
-            <AtIcon value="heart" size='30' color='#D8D8D8' />
+            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon2.png" />
             <Text>保全服务</Text>
           </View>
           <View>
-            <AtIcon value="heart" size='30' color='#D8D8D8' />
+            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
             <Text>健康门诊</Text>
           </View>
           <View>
-            <AtIcon value="heart" size='30' color='#D8D8D8' />
+            <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4.png" />
             <Text>医护人员险</Text>
           </View>
         </View>
@@ -148,6 +148,28 @@ class Index extends Component {
         {/* tabs */}
         <AtTabs current={currentTab} tabList={tabList} onClick={setCurrentTab}>
           <AtTabsPane current={currentTab} index={0} >
+            <View className="map-source">
+              <Text>数据来源： 卫健委/央视新闻，更新至：2020-00-00 00:00:00</Text>
+            </View>
+            <View className="virus-total">
+              <View className="virus-col">
+                <Text className="virus-number" style={{ color: "rgba(255,81,24,1)" }}>6042</Text>
+                <Text className="virus-hint">确诊病例</Text>
+              </View>
+              <View className="virus-col">
+                <Text className="virus-number" style={{ color: "#FF8718" }}>6042</Text>
+                <Text className="virus-hint">确诊病例</Text>
+              </View>
+              <View className="virus-col">
+                <Text className="virus-number" style={{ color: "#00BC56" }}>6042</Text>
+                <Text className="virus-hint">确诊病例</Text>
+              </View>
+              <View className="virus-col">
+                <Text className="virus-number" style={{ color: "#666666" }}>6042</Text>
+                <Text className="virus-hint">确诊病例</Text>
+              </View>
+            </View>
+            <AtDivider className="divider" />
             <iframe
               ref="imap"
               seamless
@@ -156,7 +178,11 @@ class Index extends Component {
               scrolling="auto"
               src="//49.235.78.43:1234/"
               onLoad={this.onLoadMap}
+              className="map"
             />
+            <View>
+
+            </View>
           </AtTabsPane>
           {/* 防护科普 */}
           <AtTabsPane current={currentTab} index={1}>

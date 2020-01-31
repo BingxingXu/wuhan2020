@@ -4,8 +4,7 @@ import { Banner } from './types.d'
 
 class IndexStore {
   @observable banners = [
-    "minx.oss-cn-shanghai.aliyuncs.com/strapi/51a96117964a49f1b5fcc18951b3dc14.jpeg",
-    "minx.oss-cn-shanghai.aliyuncs.com/strapi/f4e319f5916e48aa870e9335a2387cf4.jpeg"
+    "minx.oss-cn-shanghai.aliyuncs.com/wuhan/banner.png"
   ];
   @observable currentTab = 0;
   @observable tabList = [
