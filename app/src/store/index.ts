@@ -23,6 +23,17 @@ class IndexStore {
   ]
   @observable loading3 = true
   @observable loading4 = true
+  @observable virus = [
+    {
+      "country": "中国",
+      "area": "湖北",
+      "city": "武汉",
+      "confirm": 2261,
+      "suspect": 0,
+      "dead": 129,
+      "heal": 51
+    }
+  ]
 
   @action
   setBanners = v => {

@@ -2,11 +2,12 @@ import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text, Canvas } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { AtDivider, AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem } from 'taro-ui'
+import { AtDivider, AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem, AtAccordion } from 'taro-ui'
 import { CommonEvent } from '@tarojs/components/types/common'
 
 import './index.scss'
 import { Barrage } from '../../components/barrage';
+import { Area } from '../../components/table';
 
 type PageStateProps = {
   indexStore: {
@@ -55,6 +56,7 @@ class Index extends Component {
   componentDidMount() {
     this.props.indexStore.init();
     this.initBarrage();
+    this.stickHead();
   }
 
   componentWillUnmount() { }
@@ -84,6 +86,17 @@ class Index extends Component {
     textList.forEach((t) => {
       barrage.shoot(t);
     })
+  }
+
+  stickHead = () => {
+    document.onscroll = function () {
+      var distance = document.body.scrollTop || document.documentElement.scrollTop;
+      if (distance > 320) {
+        console.log('distance', distance)
+      } else {
+
+      }
+    }
   }
 
   render() {
@@ -225,6 +238,10 @@ class Index extends Component {
             </AtActionSheetItem>
           )}
         </AtActionSheet>
+        <AtDivider className="divider" />
+        <View className="virus-detail ">
+          <Area />
+        </View>
         <View className="place-holder" />
       </View>
     )
