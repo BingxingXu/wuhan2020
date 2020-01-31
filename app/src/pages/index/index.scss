@@ -113,6 +113,23 @@
     margin-bottom: 0px;
 }
 
+.map-header {
+    margin-left: 32px;
+    img {
+        height: 40px;
+        width: 40px;
+        margin-right: 16px;
+        margin-bottom: -6px;
+    }
+
+    .title {
+      font-size:28px;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      line-height:40px; 
+    }
+}
+
 .map {
   padding-right: 32px;
   padding-left: 32px;

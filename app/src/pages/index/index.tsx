@@ -185,6 +185,10 @@ class Index extends Component {
               </View>
             </View>
             <AtDivider className="divider" />
+            <View className="map-header">
+              <img src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon6.png" />
+              <Text className="title">全国疫情地图</Text>
+            </View>
             <iframe
               ref="imap"
               seamless
