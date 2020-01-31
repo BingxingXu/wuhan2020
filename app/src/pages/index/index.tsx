@@ -150,7 +150,7 @@ class Index extends Component {
             <Image
               style={{
                 marginTop: "14px",
-                marginBottom: "10px"
+                marginBottom: "4px"
               }}
               src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
             <Text>医护人员险</Text>
