@@ -48,7 +48,8 @@
     "mobx": "4.8.0",
     "nerv-devtools": "^1.5.5",
     "nervjs": "^1.5.5",
-    "taro-ui": "^2.2.4"
+    "taro-ui": "^2.2.4",
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "devDependencies": {
     "@tarojs/mini-runner": "2.0.2",

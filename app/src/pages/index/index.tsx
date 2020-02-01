@@ -212,14 +212,16 @@ class Index extends Component {
             <iframe
               frameborder={0}
               border="0"
+              align='center'
+              allowfullscreen='true'
               marginwidth="0"
               marginheight="0"
               ref="imap"
               seamless
-              // width="100%"
+              width="100%"
               height="400px"
               scrolling="auto"
-              src="//49.235.78.43:1234/"
+              src="//map.90hub.com"
               onLoad={this.onLoadMap}
               className="map"
             />
