@@ -1,6 +1,7 @@
-import { Controller, Get, HttpService } from '@nestjs/common';
+import { Controller, Get, HttpService, CacheInterceptor, UseInterceptors } from '@nestjs/common';
 
 @Controller('counts')
+@UseInterceptors(CacheInterceptor)
 export class CountController {
     constructor(private readonly httpService: HttpService) { }
 
