@@ -101,7 +101,7 @@ class Index extends Component {
     const { indexStore: { setSticky } } = this.props
     document.onscroll = function () {
       var distance = document.body.scrollTop || document.documentElement.scrollTop;
-      if (distance > 460) {
+      if (distance > 400) {
         setSticky(true)
       } else {
         setSticky(false)
@@ -168,9 +168,8 @@ class Index extends Component {
           </View> */}
         </View>
         <View className="banner-hints">
-          <Text >疫情严峻，减少人员聚集，平安人寿为您提供</Text>
+          <Text>疫情严峻，减少人员聚集，平安人寿为您提供线上自助服务</Text>
         </View>
-
         {/* 按钮 */}
         {sticky ? <AtTabBar
           className="sticky-header"

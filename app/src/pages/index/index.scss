@@ -48,8 +48,8 @@
         justify-content: center;
 
         .taro-img {
-            height: 90px;
-            width: 90px;
+            height: 96px;
+            width: 96px;
             margin-bottom: 24px;
             overflow: visible;
         }        
@@ -60,7 +60,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 14px;
+    margin-top: 24px;
+    margin-bottom: 48px;
     font-size:24px;
     font-weight:400;
     color:rgba(153,153,153,1);
@@ -116,15 +117,14 @@
     height: 80px;
     margin-left: 32px;
     margin-right: 32px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    color: #979797;
+    .at-divider__line {
+        color: #979797;
+    }
 }
 
 .map-header {
     margin-left: 32px;
+    margin-top: 0px;
     img {
         height: 40px;
         width: 40px;
