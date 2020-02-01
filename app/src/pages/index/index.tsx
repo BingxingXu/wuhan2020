@@ -101,7 +101,7 @@ class Index extends Component {
     const { indexStore: { setSticky } } = this.props
     document.onscroll = function () {
       var distance = document.body.scrollTop || document.documentElement.scrollTop;
-      if (distance > 500) {
+      if (distance > 460) {
         setSticky(true)
       } else {
         setSticky(false)
