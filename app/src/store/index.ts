@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 import { request } from '../utils/request'
-import { Banner, CountTotal } from './types.d'
+import { Banner, CountTotal, News } from './types.d'
 
 class IndexStore {
   @observable banners = [
@@ -20,9 +20,7 @@ class IndexStore {
     "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD03.png",
     "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/%E5%90%89%E7%A5%A5%E8%AF%AD04.png",
   ];
-  @observable newsList = [
-    { title: "北京新增一例", source: "百度辟谣", cover: "" },
-  ]
+  @observable newsList: News[] = []
   @observable loading3 = true
   @observable loading4 = true
   @observable virus = [
@@ -57,6 +55,8 @@ class IndexStore {
     this.currentTab = v;
   }
 
+  @action
+  setNewsList = (v: News[]) => { this.newsList = v }
   @action
   openAction = () => { this.isActionOpen = true }
 
@@ -95,9 +95,19 @@ class IndexStore {
     }
   }
 
+  fetchNews = async () => {
+    try {
+      const res = await request('/news');
+      this.setNewsList(res as News[]);
+    } catch (err) {
+      console.log("fetchNews", err)
+    }
+  }
+
   init = async () => {
     await this.fetchBanners();
     await this.fetchCountTotal();
+    await this.fetchNews();
   }
 
 }

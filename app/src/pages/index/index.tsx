@@ -12,7 +12,7 @@ import { Area } from '../../components/table';
 import { Loading } from '../../components/loading';
 import { Danmu } from '../../components/danmu';
 import { logEnter } from '../../utils/log'
-import { CountTotal } from '../../store/types.d';
+import { CountTotal, News } from '../../store/types.d';
 
 type PageStateProps = {
   indexStore: {
@@ -21,7 +21,7 @@ type PageStateProps = {
     isActionOpen: boolean,
     banners: string[],
     actionList: [string],
-    newsList: { title: string; source: string; cover: string; }[],
+    newsList: News[],
     loading3: boolean,
     loading4: boolean,
     sticky: boolean,
@@ -109,6 +109,12 @@ class Index extends Component {
     }
   }
 
+  navigate = (url: string) => {
+    Taro.navigateTo({
+      url: 'https://' + url
+    })
+  }
+
   render() {
     const { indexStore: { currentTab,
       tabList, setCurrentTab, isActionOpen,
@@ -139,19 +145,19 @@ class Index extends Component {
           )}
         </Swiper>
         <View className="banner-btns">
-          <View>
+          <View onClick={() => this.navigate("pingan.com/lpba")}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon1.png" />
             <Text>理赔服务</Text>
           </View>
-          <View>
+          <View onClick={() => this.navigate("pingan.com/qbfw")}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon2.png" />
             <Text>保全服务</Text>
           </View>
-          <View>
+          <View onClick={() => this.navigate("pingan.com/kjbd")}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
             <Text>健康门诊</Text>
           </View>
-          <View>
+          {/* <View>
             <Image
               style={{
                 marginTop: "16px",
@@ -159,7 +165,7 @@ class Index extends Component {
               }}
               src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
             <Text>医护人员险</Text>
-          </View>
+          </View> */}
         </View>
         <View className="banner-hints">
           <Text >疫情严峻，减少人员聚集，平安人寿为您提供</Text>
@@ -224,27 +230,19 @@ class Index extends Component {
           {/* 防护科普 */}
           <AtTabsPane current={currentTab} index={1}>
             <AtList>
-              {newsList.map((i, index) =>
-                <AtListItem
-                  key={index}
-                  title={i.title}
-                  note={i.source}
-                  thumb={i.cover}
-                />
-              )}
+              {newsList.length === 0 ?
+                <Loading /> :
+                newsList.map((i, index) =>
+                  <AtListItem
+                    key={index}
+                    title={i.title}
+                    note={i.fromName}
+                  />
+                )}
             </AtList>
           </AtTabsPane>
           <AtTabsPane current={currentTab} index={2}>
-            <Text style={loading3 ? {} : { display: 'none' }}>Loading....</Text>
-            <iframe
-              seamless
-              width="100%"
-              height="400px"
-              scrolling="auto"
-              src="//www.bing.com"
-              onLoad={() => { setLoading3(false) }}
-              style={loading3 ? { display: 'none' } : {}}
-            />
+            <Loading />
           </AtTabsPane>
           <AtTabsPane current={currentTab} index={3}>
             <Loading />

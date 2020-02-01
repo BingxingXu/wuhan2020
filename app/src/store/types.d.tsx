@@ -13,3 +13,12 @@ export interface CountTotal {
     updateTime: Date;
     recentTime: Date;
 }
+
+export interface News {
+    sourceId: string;
+    url: string;
+    content: string;
+    fromName: string;
+    title: string;
+    sendTime: string;
+}
