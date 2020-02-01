@@ -217,13 +217,14 @@ class Index extends Component {
               marginheight="0"
               ref="imap"
               seamless
-              width="100%"
-              height="400px"
+              width="90%"
+              height="300px"
               scrolling="auto"
               src="//map.90hub.com"
               onLoad={this.onLoadMap}
               className="map"
             />
+            <AtDivider className="divider" />
             <View className="virus-detail ">
               <Area />
             </View>

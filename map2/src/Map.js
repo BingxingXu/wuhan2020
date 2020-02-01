@@ -5,7 +5,7 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/map'
 import 'echarts/lib/component/visualMap'
 
-function Map ({ province, data, onClick }) {
+function Map({ province, data, onClick }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -25,6 +25,7 @@ function Map ({ province, data, onClick }) {
 
   const getOption = () => {
     return {
+      backgroundColor: '#fff',
       visualMap: {
         show: true,
         type: 'piecewise',
@@ -43,11 +44,11 @@ function Map ({ province, data, onClick }) {
           ]
         },
         pieces: [
-          {min: 1000},
-          {min: 500, max: 999},
-          {min: 100, max: 499},
-          {min: 10, max: 99},
-          {min: 1, max: 9},
+          { min: 1000 },
+          { min: 500, max: 999 },
+          { min: 100, max: 499 },
+          { min: 10, max: 99 },
+          { min: 1, max: 9 },
         ],
         padding: 5,
         // "inverse": false,
@@ -92,16 +93,16 @@ function Map ({ province, data, onClick }) {
   }
   return (
     loading ? <div className="loading">地图正在加载中...</div> :
-    <ReactEcharts
-      echarts={echarts}
-      option={getOption()}
-      lazyUpdate={true}
-      onEvents={{
-        click (e) {
-          onClick(e.name)
-        }
-      }}
-    />
+      <ReactEcharts
+        echarts={echarts}
+        option={getOption()}
+        lazyUpdate={true}
+        onEvents={{
+          click(e) {
+            onClick(e.name)
+          }
+        }}
+      />
   )
 }
 
