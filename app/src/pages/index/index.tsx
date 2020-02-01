@@ -178,7 +178,7 @@ class Index extends Component {
         <AtTabs current={currentTab} tabList={tabList} onClick={setCurrentTab}>
           <AtTabsPane current={currentTab} index={0} >
             <View className="map-source">
-              <Text>数据来源： 卫健委/央视新闻，更新至：{format(new Date(countTotal.updateTime), 'yyyy-MM-dd hh:mm:ss')}</Text>
+              <Text>数据来源： 卫健委/央视新闻，更新至：</Text>
             </View>
             <View className="virus-total">
               <View className="virus-col">
