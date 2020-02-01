@@ -12,3 +12,11 @@ Content-Type: application/json
 # get all banners
 ###
 GET {{uri}}/banners
+
+# get area virus count
+###
+GET {{uri}}/counts/area
+
+# get total virus count
+###
+GET {{uri}}/counts/total
