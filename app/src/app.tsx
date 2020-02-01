@@ -5,7 +5,7 @@ import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
 
 import Index from './pages/index'
 import indexStore from './store/index'
-
+import { logInit } from './utils/log'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -39,7 +39,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    logInit();
+  }
 
   componentDidShow() { }
 

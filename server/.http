@@ -1,4 +1,5 @@
-@uri=http://127.0.0.1:3000
+# @uri=http://127.0.0.1:3000
+@uri=http://49.235.78.43:3000
 
 # create first example
 ###

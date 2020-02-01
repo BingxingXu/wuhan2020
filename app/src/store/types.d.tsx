@@ -1,14 +1,15 @@
 export interface Banner {
     id: number;
-    created_at: Date;
-    updated_at: Date;
-    url: Image;
+    createdAt: Date;
+    updatedAt: Date;
+    url: string;
 }
 
-export interface Image {
-    id: number;
-    name: string;
-    hash: string;
-    sha256: string;
-    url: string;
+export interface CountTotal {
+    confirmCount: number;
+    suspectCount: number;
+    deadCount: number;
+    cure: number;
+    updateTime: Date;
+    recentTime: Date;
 }

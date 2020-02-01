@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 import { request } from '../utils/request'
-import { Banner } from './types.d'
+import { Banner, CountTotal } from './types.d'
 
 class IndexStore {
   @observable banners = [
@@ -36,6 +36,15 @@ class IndexStore {
       "heal": 51
     }
   ]
+  @observable countTotal: CountTotal = {
+    confirmCount: 0,
+    suspectCount: 0,
+    deadCount: 0,
+    cure: 0,
+    updateTime: new Date("2020-01-30 17:47"),
+    recentTime: new Date("2020-01-30 17:47")
+  }
+
   @observable sticky = false
 
   @action
@@ -63,18 +72,32 @@ class IndexStore {
   @action
   setSticky = (v: boolean) => { this.sticky = v }
 
+  @action
+  setCountTotal = (v: CountTotal) => { this.countTotal = v }
+
   fetchBanners = async () => {
     try {
       const res = await request('/banners');
-      const banners = (res as Banner[]).map(i => i.url.url);
+      const banners = (res as Banner[]).map(i => i.url);
       this.setBanners(banners);
     } catch (err) {
-      console.log('err', err)
+      console.log('fetchBanners error', err)
+    }
+  }
+
+  fetchCountTotal = async () => {
+    try {
+      const res = await request('/counts/total');
+      const total = (res as CountTotal[])[0];
+      this.setCountTotal(total);
+    } catch (err) {
+      console.log("fetchCountTotal error", err)
     }
   }
 
   init = async () => {
     await this.fetchBanners();
+    await this.fetchCountTotal();
   }
 
 }

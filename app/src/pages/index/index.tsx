@@ -4,12 +4,15 @@ import { View, Swiper, SwiperItem, Image, Text, Canvas } from '@tarojs/component
 import { observer, inject } from '@tarojs/mobx'
 import { AtDivider, AtTabBar, AtIcon, AtMessage, AtTabs, AtTabsPane, AtButton, AtActionSheet, AtActionSheetItem, AtCard, AtList, AtListItem, AtAccordion } from 'taro-ui'
 import { CommonEvent } from '@tarojs/components/types/common'
+import { format } from 'date-fns';
 
 import './index.scss'
 import { Barrage } from '../../components/barrage';
 import { Area } from '../../components/table';
 import { Loading } from '../../components/loading';
 import { Danmu } from '../../components/danmu';
+import { logEnter } from '../../utils/log'
+import { CountTotal } from '../../store/types.d';
 
 type PageStateProps = {
   indexStore: {
@@ -22,6 +25,7 @@ type PageStateProps = {
     loading3: boolean,
     loading4: boolean,
     sticky: boolean,
+    countTotal: CountTotal,
     setLoading3: (v: boolean) => {},
     setLoading4: (v: boolean) => {},
     init: () => {},
@@ -61,6 +65,7 @@ class Index extends Component {
     this.props.indexStore.init();
     // this.initBarrage();
     this.stickHead();
+    logEnter();
   }
 
   componentWillUnmount() { }
@@ -109,7 +114,7 @@ class Index extends Component {
       tabList, setCurrentTab, isActionOpen,
       openAction, closeAction, actionList,
       newsList, banners, setLoading3, loading3,
-      sticky, setSticky,
+      sticky, countTotal,
     } } = this.props
     return (
       <View >
@@ -149,7 +154,7 @@ class Index extends Component {
           <View>
             <Image
               style={{
-                marginTop: "14px",
+                marginTop: "16px",
                 marginBottom: "4px"
               }}
               src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon4-1.png" />
@@ -173,23 +178,23 @@ class Index extends Component {
         <AtTabs current={currentTab} tabList={tabList} onClick={setCurrentTab}>
           <AtTabsPane current={currentTab} index={0} >
             <View className="map-source">
-              <Text>数据来源： 卫健委/央视新闻，更新至：2020-00-00 00:00:00</Text>
+              <Text>数据来源： 卫健委/央视新闻，更新至：{format(new Date(countTotal.updateTime), 'yyyy-MM-dd hh:mm:ss')}</Text>
             </View>
             <View className="virus-total">
               <View className="virus-col">
-                <Text className="virus-number" style={{ color: "rgba(255,81,24,1)" }}>6042</Text>
+                <Text className="virus-number" style={{ color: "rgba(255,81,24,1)" }}>{countTotal.confirmCount}</Text>
                 <Text className="virus-hint">确诊病例</Text>
               </View>
               <View className="virus-col">
-                <Text className="virus-number" style={{ color: "#FF8718" }}>6042</Text>
+                <Text className="virus-number" style={{ color: "#FF8718" }}>{countTotal.suspectCount}</Text>
                 <Text className="virus-hint">疑似病例</Text>
               </View>
               <View className="virus-col">
-                <Text className="virus-number" style={{ color: "#00BC56" }}>6042</Text>
+                <Text className="virus-number" style={{ color: "#00BC56" }}>{countTotal.cure}</Text>
                 <Text className="virus-hint">治愈病例</Text>
               </View>
               <View className="virus-col">
-                <Text className="virus-number" style={{ color: "#666666" }}>6042</Text>
+                <Text className="virus-number" style={{ color: "#666666" }}>{countTotal.deadCount}</Text>
                 <Text className="virus-hint">死亡病例</Text>
               </View>
             </View>
