@@ -111,7 +111,7 @@ class Index extends Component {
 
   navigate = (url: string) => {
     Taro.navigateTo({
-      url: 'https://' + url
+      url
     })
   }
 
@@ -145,15 +145,15 @@ class Index extends Component {
           )}
         </Swiper>
         <View className="banner-btns">
-          <View onClick={() => this.navigate("pingan.com/lpba")}>
+          <View onClick={() => this.navigate("https://pingan.com/lpba")}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon1.png" />
             <Text>理赔服务</Text>
           </View>
-          <View onClick={() => this.navigate("pingan.com/qbfw")}>
+          <View onClick={() => this.navigate("https://pingan.com/qbfw")}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon2.png" />
             <Text>保全服务</Text>
           </View>
-          <View onClick={() => this.navigate("pingan.com/kjbd")}>
+          <View onClick={() => this.navigate("https://pingan.com/kjbd")}>
             <Image src="//minx.oss-cn-shanghai.aliyuncs.com/wuhan/icon3.png" />
             <Text>健康门诊</Text>
           </View>
@@ -216,7 +216,7 @@ class Index extends Component {
               marginheight="0"
               ref="imap"
               seamless
-              width="100%"
+              // width="100%"
               height="400px"
               scrolling="auto"
               src="//49.235.78.43:1234/"
@@ -234,6 +234,7 @@ class Index extends Component {
                 <Loading /> :
                 newsList.map((i, index) =>
                   <AtListItem
+                    onClick={() => this.navigate(i.url)}
                     key={index}
                     title={i.title}
                     note={i.fromName}
