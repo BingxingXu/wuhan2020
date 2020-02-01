@@ -1,0 +1,14 @@
+@uri=http://127.0.0.1:3000
+
+# create first example
+###
+POST {{uri}}/banners
+Content-Type: application/json
+
+{
+    "url": "//minx.oss-cn-shanghai.aliyuncs.com/wuhan/banner.png"
+}
+
+# get all banners
+###
+GET {{uri}}/banners
