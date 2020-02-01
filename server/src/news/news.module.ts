@@ -1,9 +1,13 @@
-import { Module } from '@nestjs/common';
+import { Module, HttpModule, CacheModule } from '@nestjs/common';
 import { NewsController } from './news.controller';
-import { NewsService } from './news.service';
 
 @Module({
+  imports: [
+    HttpModule,
+    CacheModule.register({
+      ttl: 60 * 60,
+    }),
+  ],
   controllers: [NewsController],
-  providers: [NewsService]
 })
-export class NewsModule {}
+export class NewsModule { }

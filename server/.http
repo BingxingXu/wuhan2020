@@ -1,5 +1,5 @@
-# @uri=http://127.0.0.1:3000
-@uri=http://49.235.78.43:3000
+@uri=http://127.0.0.1:3000
+# @uri=http://49.235.78.43:3000
 
 # create first example
 ###
@@ -21,3 +21,7 @@ GET {{uri}}/counts/area
 # get total virus count
 ###
 GET {{uri}}/counts/total
+
+# get news
+###
+GET {{uri}}/news/
