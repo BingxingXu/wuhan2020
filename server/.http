@@ -25,3 +25,59 @@ GET {{uri}}/counts/total
 # get news
 ###
 GET {{uri}}/news/
+
+# 科普
+###
+GET {{uri}}/sciences/
+
+mock
+###
+POST {{uri}}/sciences/bulk
+Content-Type: application/json
+
+{
+    "bulk": [
+        {
+            "title": "疫情高发期“家里蹲”理性健康自救指南",
+            "url": "https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1196454",
+            "cover": "https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/kepu/1.png",
+            "content": "",
+            "fromName": ""
+        },
+        {
+            "title": "中医是如何防治肺炎的？名中医开预防药方",
+            "url": "https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1195351",
+            "cover": "https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/kepu/2.png",
+            "content": "",
+            "fromName": ""
+        },
+        {
+            "title": "口罩怎么选？怎么戴？才能有效预防!",
+            "url": "https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1195280",
+            "cover": "https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/kepu/3.png",
+            "content": "",
+            "fromName": ""
+        },
+        {
+            "title": "别恐慌，认识病毒性肺炎，教你5招轻松应对",
+            "url": "https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1195339",
+            "cover": "https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/kepu/4.png",
+            "content": "",
+            "fromName": ""
+        },
+        {
+            "title": "4招诀窍升级抵抗力，新年防御强敌新肺炎！",
+            "url": "https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1196452",
+            "cover": "https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/kepu/5.png",
+            "content": "",
+            "fromName": ""
+        },
+        {
+            "title": "新肺炎病从口入，请不要在餐桌上演“疯狂动物城”",
+            "url": "https://als.cdn.lifeapp.pingan.com.cn/elis_smp_als_dmz/r-act/index.html#/micro-community/share-post-detail?bizId=P1195378",
+            "cover": "https://minx.oss-cn-shanghai.aliyuncs.com/wuhan/kepu/6.png",
+            "content": "",
+            "fromName": ""
+        }
+    ]
+}
